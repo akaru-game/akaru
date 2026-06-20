@@ -34,7 +34,7 @@ jobs:
 
     # 5. Build Project Web (Menghasilkan folder dist/www/build)
      - name: Build Web App
-      run: npm run build
+       run: npm run build
 
     # 6. Sinkronisasi Kode Web ke Folder Android Native via Capacitor
     - name: Capacitor Sync
