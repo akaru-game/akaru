@@ -26,6 +26,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
+        distribution: 'temurin'
 
     # 4. Install Dependencies Project (Web/Frontend)
     - name: Install Dependencies
