@@ -1,0 +1,60 @@
+name: Build Capacitor Android APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout Kode dari GitHub
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    # 2. Setup Node.js (Sesuaikan versi dengan framework Anda, misal v20)
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    # 3. Setup Java (JDK 17 diperlukan untuk Android Gradle terbaru)
+    - name: Setup JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    # 4. Install Dependencies Project (Web/Frontend)
+    - name: Install Dependencies
+      run: npm install # atau 'npm install' jika tidak ada package-lock.json
+
+    # 5. Build Project Web (Menghasilkan folder dist/www/build)
+    - name: Build Web App
+      run: npm run build
+
+    # 6. Sinkronisasi Kode Web ke Folder Android Native via Capacitor
+    - name: Capacitor Sync
+      run: npx cap sync android
+
+    # 7. Berikan Izin Eksekusi untuk Gradle Wrapper
+    - name: Grant Execute Permission for Gradle
+      run: chmod +x android/gradlew
+
+    # 8. Compile Menjadi APK menggunakan Gradle
+    - name: Build Android APK (Debug)
+      run: |
+        cd android
+        ./gradlew assembleDebug
+
+    # 9. Upload File APK ke GitHub Artifacts
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: capacitor-app-debug
+        path: android/app/build/outputs/apk/debug/app-debug.apk
