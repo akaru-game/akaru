@@ -19,7 +19,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '24'
 
     # 3. Setup Java (JDK 17 diperlukan untuk Android Gradle terbaru)
     - name: Setup JDK 17
