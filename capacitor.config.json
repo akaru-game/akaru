@@ -2,6 +2,10 @@
   "appId": "com.akaru.mobagames",
   "appName": "Akaru",
   "webDir": "dist",
+  "server": {
+    "url": "http://localhost:5173",
+    "cleartext": true
+  },
   "plugins": {
     "SplashScreen": {
       "launchAutoHide": false

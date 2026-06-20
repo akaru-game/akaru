@@ -33,12 +33,12 @@ jobs:
       run: npm install # atau 'npm install' jika tidak ada package-lock.json
 
     # 5. Build Project Web (Menghasilkan folder dist/www/build)
-    # - name: Build Web App
-    #  run: npm run build
+     - name: Build Web App
+      run: npm run build
 
     # 6. Sinkronisasi Kode Web ke Folder Android Native via Capacitor
-    # - name: Capacitor Sync
-    #  run: npx cap sync android
+    - name: Capacitor Sync
+      run: npx cap sync android
 
     # 7. Berikan Izin Eksekusi untuk Gradle Wrapper
     - name: Grant Execute Permission for Gradle
