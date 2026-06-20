@@ -1,0 +1,10 @@
+{
+  "appId": "com.akaru.mobagames",
+  "appName": "Akaru",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
