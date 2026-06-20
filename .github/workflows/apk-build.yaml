@@ -25,9 +25,7 @@ jobs:
     - name: Setup JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: gradle
+        java-version: '21'
 
     # 4. Install Dependencies Project (Web/Frontend)
     - name: Install Dependencies
