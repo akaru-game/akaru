@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@boengli/capacitor-fullscreen": "^0.0.20",
     "@capacitor/android": "^8.4.1",
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",

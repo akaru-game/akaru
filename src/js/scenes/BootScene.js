@@ -13,7 +13,7 @@ export default class BootScene extends Scene {
     this.add.text(
       this.cameras.main.width/2,
       this.cameras.main.height/2,
-      "Hello World",
+      "Loading...",
       {
         color: "#fff"
       }
