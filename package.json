@@ -18,6 +18,7 @@
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest",
+    "eruda": "^3.4.3",
     "phaser": "^4.2.0"
   },
   "devDependencies": {

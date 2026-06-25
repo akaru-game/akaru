@@ -1,21 +1,44 @@
-import { Game, AUTO } from "phaser"
+import eruda from "eruda"
+
+eruda.init()
+
+import { Game, AUTO, Scale } from "phaser"
 import BootScene from './scenes/BootScene'
+import GameScene from './scenes/GameScene'
+import { Fullscreen } from "@boengli/capacitor-fullscreen"
 
-const container = document.getElementById('game-container')
+;(async () => {
 
-try {
-  const app = new Game({
-    type: AUTO,
-    parent: 'game-container',
-    width: container.clientWidth,
-    height: container.clientHeight,
-    //scale: Scale.FIT,
-    //autoCenter: Scale.CENTER_BOTH,
-    backgroundColor: '#ccc',
-    scene: [
-      BootScene
-    ]
-  })
-} catch (error) {
-  alert(error)
-}
+  await Fullscreen.activateImmersiveMode()
+
+  try {
+    const app = new Game({
+      type: AUTO,
+      parent: 'game-container',
+      scale: {
+        mode: Scale.RESIZE,
+        autoCenter: Scale.CENTER_BOTH,
+        width: window.innerWidth,
+        height: window.innerHeight
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: { y: 0 },
+          debug: false
+        }
+      },
+      render: {
+        pixelArt: false,
+        antialias: true,
+        antialiasGL: true
+      },
+      scene: [
+        BootScene,
+        GameScene
+      ]
+    })
+  } catch (error) {
+    alert(error)
+  }
+})()
