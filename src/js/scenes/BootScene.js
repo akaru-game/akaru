@@ -51,10 +51,7 @@ export default class BootScene extends Scene {
       frameHeight: 48,
     })
 
-    this.load.spritesheet("aarold", "assets/sprites/heroes/aarold.png", {
-      frameWidth: 320,
-      frameHeight: 320,
-    })
+    
   }
 
   create() {
