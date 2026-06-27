@@ -18,8 +18,10 @@
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest",
+    "@tailwindcss/vite": "^4.3.1",
     "eruda": "^3.4.3",
-    "phaser": "^4.2.0"
+    "phaser": "^4.2.0",
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
     "@capacitor/cli": "latest",

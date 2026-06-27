@@ -9,9 +9,10 @@ export default class BootScene extends Scene {
 
   preload() {
 
+    
     const { width, height } = this.cameras.main
     const barWidth = width - 200
-
+    
     const container = this.add.container(100, height - 60)
 
     const text = this.add
@@ -40,15 +41,19 @@ export default class BootScene extends Scene {
     this.load.on("complete", () => {
       this.cameras.main.fadeOut(500, 0, 0)
     })
+
+    this.load.image("bg_jungle", "assets/background/bg_jungle.png")
+    this.load.image("background", "assets/background/bg.png")
+
     
     // Contoh load single image dari URL dummy
     this.load.image("logo", "assets/imgs/logo.png")
 
     // Contoh load beberapa image sekaligus
-    this.load.image("background", "assets/background/bg.jpg")
-    this.load.spritesheet("dude", "assets/imgs/dude.png", {
-      frameWidth: 32,
-      frameHeight: 48,
+    
+    this.load.spritesheet("tan", "assets/sprites/heroes/tan.png", {
+      frameWidth: 140,
+      frameHeight: 260,
     })
 
     

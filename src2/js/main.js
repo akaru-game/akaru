@@ -1,6 +1,6 @@
-import eruda from "eruda"
+//import eruda from "eruda"
 
-eruda.init()
+//eruda.init()
 
 import { Game, AUTO, Scale } from "phaser"
 import BootScene from './scenes/BootScene'
@@ -29,9 +29,9 @@ import { Fullscreen } from "@boengli/capacitor-fullscreen"
         }
       },
       render: {
-        pixelArt: false,
-        antialias: true,
-        antialiasGL: true
+        pixelArt: true,
+        antialias: false,
+        antialiasGL: false
       },
       scene: [
         BootScene,
