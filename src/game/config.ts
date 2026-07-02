@@ -1,17 +1,12 @@
 import * as Phaser from "phaser"
 
-import InitScene from './scenes/InitScene'
 import BootScene from './scenes/BootScene'
-import MainMenuScene from './scenes/MainMenuScene'
-import Game_RunnerScene from './scenes/Game_RunnerScene'
-import Game_Match3Scene from './scenes/Game_Match3Scene'
-import Game_BattleScene from './scenes/Game_BattleScene'
-
+import GameScene from './scenes/GameScene'
 
 const app = new Phaser.Game({
   type: Phaser.AUTO,
   parent: 'game-container',
-  backgroundColor: "#8ea485",
+  backgroundColor: '#ccffcc',
   scale: {
     mode: Phaser.Scale.RESIZE,
     autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -26,19 +21,17 @@ const app = new Phaser.Game({
     }
   },
   render: {
-    pixelArt: true,
+    resolution: window.devicePixelRatio || 1,
+    pixelArt: false,
     antialias: false,
-    antialiasGL: false
+    antialiasGL: false,
+    roundPixels: true
   },
   dom: {
     createContainer: true
   },
   scene: [
-    InitScene,
     BootScene,
-    MainMenuScene,
-    Game_RunnerScene,
-    Game_Match3Scene,
-    Game_BattleScene
+    GameScene
   ]
 })
